@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "chalet";
+  src: url('/public/ChaletComprime\ CologneSixty.ttf');
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section.header {
+  background-image: url('/public/images/WallpaperDog-20488946.jpg');
+  font-family: "chalet";
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  min-height: 140vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+section.header::before {
+  content: ' ';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  min-height: 100%;
+  /* background-color: red; */
+  z-index: 5;
+  background: linear-gradient(90deg, #111, transparent);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+section.welcome-section {
+  /* background-image: url('/public/images/WallpaperDog-20488975.jpg'); */
+  font-family: "chalet";
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  /* min-height: 120vh; */
 }

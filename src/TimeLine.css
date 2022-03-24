@@ -1,0 +1,159 @@
+/**********************************/
+/********* Timeline 3 CSS *********/
+/**********************************/
+@font-face {
+  font-family: "chalet";
+  src: url('/public/ChaletComprime\ CologneSixty.ttf');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+section.timeline-section {
+    margin: 0;
+    font-family: "chalet";
+    background: #000;
+}
+
+.timeline {
+    position: relative;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+.container {
+    padding: 0 15px;
+    position: relative;
+    background: inherit;
+    width: 50%;
+    margin-top: -5px;
+}
+
+.container.left {
+    left: 0;
+}
+
+.container.right {
+    left: 50%;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 5px;
+    background: #fff;
+    z-index: 1;
+}
+
+.container.left::before {
+    top: 0;
+    right: 0;
+}
+
+.container.right::before {
+    bottom: 0;
+    left: 0;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 5px;
+    background: #fff;
+    z-index: 1;
+}
+
+.container.left::after {
+    bottom: 0;
+    right: 0;
+}
+
+.container.right::after {
+    top: 0;
+    left: 0;
+}
+
+.container:first-child::before,
+.container:last-child::before {
+    display: none;
+}
+
+.container .content {
+    padding: 30px;
+    background: transparent;
+    position: relative;
+    border-right: 5px solid #fff;
+    border: 5px solid #eeeeee;
+    border-radius: 15px 0 0 15px;
+    box-shadow: 0 0 60px rgba(0, 0, 0, .08);
+}
+
+.container.right .content {
+    border-right: 5px solid #eeeeee;
+    border-left: 5px solid #fff;
+    border-radius: 0 15px 15px 0;
+}
+
+.container .content h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.container .content h2 span {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 5px 10px;
+    color: #fff;
+    background: transparent;
+    border: solid 2px #fff;
+}
+
+.container .content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #fff;
+}
+
+@media (max-width: 767.98px) {
+    .timeline {
+        padding-bottom: 0;
+    }
+
+    .container {
+        width: 100%;
+        margin-top: 0;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .container.right {
+        left: 0%;
+    }
+
+    .container.left::after, 
+    .container.right::after,
+    .container.left::before,
+    .container.right::before {
+        width: 5px;
+        height: 35px;
+        left: 30px;
+    }
+    
+    .container.left .content,
+    .container.right .content {
+        border-right: 5px solid #eeeeee;
+        border-left: 5px solid #fff;
+        border-radius: 0 15px 15px 0;
+    }
+}
