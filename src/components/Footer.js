@@ -17,7 +17,7 @@ export default function Footer (){
                 </form>
             </div>
         </div>
-        <div class="flex items-center justify-between my-4">
+        <div class="flex flex-col sm:flex-row items-center justify-between my-4">
             <p class="text-white pt-6">All rights reserved</p>
             <p class="inline-flex text-white px-2 pt-6">Built with 
                 <svg fill="#!e53e3e" viewBox="0 0 24 24"  class="w-5 h-5 mx-1 pt-px text-red-600" stroke="currentColor">

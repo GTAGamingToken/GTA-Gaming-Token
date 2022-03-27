@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "wyzecrypto"
+  },
+  "targets": {
+    "wyzecrypto": {
+      "hosting": {
+        "gtagamingtoken": [
+          "gta-token"
+        ],
+        "gta": [
+          "gtagamingtoken"
+        ]
+      }
+    }
+  }
+}

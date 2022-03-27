@@ -13,7 +13,7 @@ export default function TimeLine() {
       <div className="text-center">
         <HeaderText>Timeline</HeaderText>
       </div>
-      <div className="text-justify">
+      <div className="text-center">
         <BodyText>
           Briefly scan through the section below to see the timeline for the GTA Gaming Token.
         </BodyText>
@@ -22,67 +22,77 @@ export default function TimeLine() {
         <div class="container left">
           <div class="content">
             <h2>
-              <span>2020</span>Lorem ipsum dolor sit amet
+              <span>Q1 2020</span>IGO, private sale and Token launch.
             </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>IGO & Private Sale</h3></li>
+              <li><h3>Token Launch on Pancakeswap</h3></li>
+              <li><h3>Token Uniswap on Pancakeswap</h3></li>
+              <li><h3>NFT collectibles and airdrop</h3></li>
+              <li><h3>Coingecko and CoinMarketCap listing</h3></li>
+            </ul>
           </div>
         </div>
         <div class="container right">
           <div class="content">
             <h2>
-              <span>2019</span>Lorem ipsum dolor sit amet
+              <span>Q2 2022</span> CEX listing
             </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>Trixswap</h3></li>
+              <li><h3>Huboi</h3></li>
+              <li><h3>ByBit</h3></li>
+              <li><h3>Gate.io</h3></li>
+              <li><h3>Binance</h3></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+          <h2>
+              <span>Q3 2022</span> Token Airdrops, NFT Launch and Staking
+            </h2>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>Token Airdrop</h3></li>
+              <li><h3>NFT collection Airdrop</h3></li>
+              <li><h3>Staking Protocols</h3></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+          <h2>
+              <span>Q4 2022</span> Token, NFT Airdrops and Staking
+            </h2>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>Token Airdrop</h3></li>
+              <li><h3>NFT collection Airdrop</h3></li>
+              <li><h3>Staking Protocols</h3></li>
+            </ul>
           </div>
         </div>
         <div class="container left">
           <div class="content">
             <h2>
-              <span>2018</span>Lorem ipsum dolor sit amet
+              <span>Q1 2023</span>NFT Marketplace
             </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>GTA Gtaming NFT marketplace</h3></li>
+              <li><h3>Minting of Special Collectibles and Accessories</h3></li>
+              <li><h3>Trade GTA gamming NFTs and collectibles for GTA Gaming Token</h3></li>
+            </ul>
           </div>
         </div>
         <div class="container right">
           <div class="content">
-            <h2>
-              <span>2017</span>Lorem ipsum dolor sit amet
+          <h2>
+              <span>Q2 2023</span>GTA Gaming P2E Metaverse
             </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
-          </div>
-        </div>
-        <div class="container left">
-          <div class="content">
-            <h2>
-              <span>2016</span>Lorem ipsum dolor sit amet
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
-          </div>
-        </div>
-        <div class="container right">
-          <div class="content">
-            <h2>
-              <span>2015</span>Lorem ipsum dolor sit amet
-            </h2>
-            <p>
-              Lorem ipsum dolor sit amet elit. Aliquam odio dolor, id luctus
-              erat sagittis non. Ut blandit semper pretium.
-            </p>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>Partnership with Rockstar North.</h3></li>
+              <li><h3>Partnership with Playstation/</h3></li>
+              <li><h3>Partnership with XBox</h3></li>
+            </ul>
           </div>
         </div>
       </div>
