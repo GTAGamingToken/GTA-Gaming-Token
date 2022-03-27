@@ -5,7 +5,7 @@ import { welcomeText } from '../utils/helper';
 import TimeLine from "../components/TimeLine";
 import Pricing from "../components/Pricing";
 import Footer from "../components/Footer";
-
+import PlayToEarn from "../components/PlayToEarn";
 export default function Home(){
 
   const welcomeTitle =  'About GTA Gaming Token';
@@ -15,6 +15,7 @@ export default function Home(){
       <Header />
       <SectionComponent title={welcomeTitle} src={src} welcomeText={welcomeText} />
       <TimeLine />
+      <PlayToEarn />
       <Pricing />
       <Footer />
     </LayoutComponent>

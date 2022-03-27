@@ -3,6 +3,10 @@
   src: url('/public/ChaletComprime\ CologneSixty.ttf');
 }
 
+section.play-to-earn, section.staking {
+  font-family: 'chalet';
+}
+
 section.header {
   background-image: url('/public/images/WallpaperDog-20488946.jpg');
   font-family: "chalet";

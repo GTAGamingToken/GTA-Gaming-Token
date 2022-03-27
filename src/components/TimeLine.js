@@ -7,7 +7,7 @@ let src = '/images/WallpaperDog-5479844.jpg'
 export default function TimeLine() {
   return (
     <section className="timeline-section">
-      <div className="m-16 rounded-xl overflow-hidden border-gray-900">
+      <div className="m-8 sm:m-16 rounded-xl overflow-hidden border-gray-900">
           <Image src={src} />
         </div>
       <div className="text-center">
@@ -27,8 +27,7 @@ export default function TimeLine() {
             <ul className="flex flex-col space-y-4 text-2xl">
               <li><h3>IGO & Private Sale</h3></li>
               <li><h3>Token Launch on Pancakeswap</h3></li>
-              <li><h3>Token Uniswap on Pancakeswap</h3></li>
-              <li><h3>NFT collectibles and airdrop</h3></li>
+              <li><h3>Token launch on uniswap</h3></li>
               <li><h3>Coingecko and CoinMarketCap listing</h3></li>
             </ul>
           </div>
@@ -39,8 +38,8 @@ export default function TimeLine() {
               <span>Q2 2022</span> CEX listing
             </h2>
             <ul className="flex flex-col space-y-4 text-2xl">
-              <li><h3>Trixswap</h3></li>
-              <li><h3>Huboi</h3></li>
+    
+              <li><h3>MEXC</h3></li>
               <li><h3>ByBit</h3></li>
               <li><h3>Gate.io</h3></li>
               <li><h3>Binance</h3></li>
@@ -62,19 +61,7 @@ export default function TimeLine() {
         <div class="container right">
           <div class="content">
           <h2>
-              <span>Q4 2022</span> Token, NFT Airdrops and Staking
-            </h2>
-            <ul className="flex flex-col space-y-4 text-2xl">
-              <li><h3>Token Airdrop</h3></li>
-              <li><h3>NFT collection Airdrop</h3></li>
-              <li><h3>Staking Protocols</h3></li>
-            </ul>
-          </div>
-        </div>
-        <div class="container left">
-          <div class="content">
-            <h2>
-              <span>Q1 2023</span>NFT Marketplace
+              <span>Q4 2022</span>NFT Marketplace
             </h2>
             <ul className="flex flex-col space-y-4 text-2xl">
               <li><h3>GTA Gtaming NFT marketplace</h3></li>
@@ -83,8 +70,20 @@ export default function TimeLine() {
             </ul>
           </div>
         </div>
-        <div class="container right">
+        <div class="container left">
           <div class="content">
+          <h2>
+              <span>Q1 2023</span>GTA Gaming P2E Metaverse
+            </h2>
+            <ul className="flex flex-col space-y-4 text-2xl">
+              <li><h3>Partnership with Rockstar North.</h3></li>
+              <li><h3>Partnership with Playstation/</h3></li>
+              <li><h3>Partnership with XBox</h3></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container right">
+          {/* <div class="content">
           <h2>
               <span>Q2 2023</span>GTA Gaming P2E Metaverse
             </h2>
@@ -93,7 +92,7 @@ export default function TimeLine() {
               <li><h3>Partnership with Playstation/</h3></li>
               <li><h3>Partnership with XBox</h3></li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

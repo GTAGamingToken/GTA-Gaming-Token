@@ -9,7 +9,7 @@ export default function Navbar({ links }) {
           Logo
         </a>
         <button
-          className="font sm:hidden"
+          className="font sm:hidden w-1/2"
           onClick={(e) => setShowNav(!showNav)}
         >
           <i className="fa-solid fa-bars"></i>
@@ -53,14 +53,20 @@ export default function Navbar({ links }) {
               )}
           </ul>
           <ul className="sm:hidden sm:flex-row mx-2 p-2 py-8 justify-between">
-            <li className="p-6">Buy now</li>
+            <li className="p-6">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url">
+              Airdrop
+            </a>
+            </li>
             <li className="p-6">0xEFF</li>
           </ul>
         </>
       )}
       <ul className="hidden sm:flex sm:flex-row mx-2 p-2 py-8 justify-between">
-        <li className="mx-2">Buy now</li>
-        <li className="mx-2">0xEFF</li>
+        <li className="mx-2">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url">Airdrop</a>
+        </li>
+        {/* <li className="mx-2">0xEFF</li> */}
       </ul>
     </nav>
   );

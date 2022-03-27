@@ -1,178 +1,282 @@
 /**
  *Submitted for verification at snowtrace.io on 2022-02-11
-*/
+ */
 
 // File: interfaces/IPangolinFactory.sol
 
 pragma solidity >=0.5.0;
 
 interface IPangolinFactory {
-    event PairCreated(address indexed token0, address indexed token1, address pair, uint);
+    event PairCreated(
+        address indexed token0,
+        address indexed token1,
+        address pair,
+        uint256
+    );
 
     function feeTo() external view returns (address);
+
     function feeToSetter() external view returns (address);
 
-    function getPair(address tokenA, address tokenB) external view returns (address pair);
-    function allPairs(uint) external view returns (address pair);
-    function allPairsLength() external view returns (uint);
+    function getPair(address tokenA, address tokenB)
+        external
+        view
+        returns (address pair);
 
-    function createPair(address tokenA, address tokenB) external returns (address pair);
+    function allPairs(uint256) external view returns (address pair);
+
+    function allPairsLength() external view returns (uint256);
+
+    function createPair(address tokenA, address tokenB)
+        external
+        returns (address pair);
 
     function setFeeTo(address) external;
+
     function setFeeToSetter(address) external;
-}
+} 
+// formsURL: https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url
 // File: interfaces/IPangolinRouter.sol
 
 pragma solidity >=0.6.2;
 
 interface IPangolinRouter {
     function factory() external pure returns (address);
+
     function WAVAX() external pure returns (address);
 
     function addLiquidity(
         address tokenA,
         address tokenB,
-        uint amountADesired,
-        uint amountBDesired,
-        uint amountAMin,
-        uint amountBMin,
+        uint256 amountADesired,
+        uint256 amountBDesired,
+        uint256 amountAMin,
+        uint256 amountBMin,
         address to,
-        uint deadline
-    ) external returns (uint amountA, uint amountB, uint liquidity);
+        uint256 deadline
+    )
+        external
+        returns (
+            uint256 amountA,
+            uint256 amountB,
+            uint256 liquidity
+        );
+
     function addLiquidityAVAX(
         address token,
-        uint amountTokenDesired,
-        uint amountTokenMin,
-        uint amountAVAXMin,
+        uint256 amountTokenDesired,
+        uint256 amountTokenMin,
+        uint256 amountAVAXMin,
         address to,
-        uint deadline
-    ) external payable returns (uint amountToken, uint amountAVAX, uint liquidity);
+        uint256 deadline
+    )
+        external
+        payable
+        returns (
+            uint256 amountToken,
+            uint256 amountAVAX,
+            uint256 liquidity
+        );
+
     function removeLiquidity(
         address tokenA,
         address tokenB,
-        uint liquidity,
-        uint amountAMin,
-        uint amountBMin,
+        uint256 liquidity,
+        uint256 amountAMin,
+        uint256 amountBMin,
         address to,
-        uint deadline
-    ) external returns (uint amountA, uint amountB);
+        uint256 deadline
+    ) external returns (uint256 amountA, uint256 amountB);
+
     function removeLiquidityAVAX(
         address token,
-        uint liquidity,
-        uint amountTokenMin,
-        uint amountAVAXMin,
+        uint256 liquidity,
+        uint256 amountTokenMin,
+        uint256 amountAVAXMin,
         address to,
-        uint deadline
-    ) external returns (uint amountToken, uint amountAVAX);
+        uint256 deadline
+    ) external returns (uint256 amountToken, uint256 amountAVAX);
+
     function removeLiquidityWithPermit(
         address tokenA,
         address tokenB,
-        uint liquidity,
-        uint amountAMin,
-        uint amountBMin,
+        uint256 liquidity,
+        uint256 amountAMin,
+        uint256 amountBMin,
         address to,
-        uint deadline,
-        bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external returns (uint amountA, uint amountB);
+        uint256 deadline,
+        bool approveMax,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external returns (uint256 amountA, uint256 amountB);
+
     function removeLiquidityAVAXWithPermit(
         address token,
-        uint liquidity,
-        uint amountTokenMin,
-        uint amountAVAXMin,
+        uint256 liquidity,
+        uint256 amountTokenMin,
+        uint256 amountAVAXMin,
         address to,
-        uint deadline,
-        bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external returns (uint amountToken, uint amountAVAX);
-    function swapExactTokensForTokens(
-        uint amountIn,
-        uint amountOutMin,
-        address[] calldata path,
-        address to,
-        uint deadline
-    ) external returns (uint[] memory amounts);
-    function swapTokensForExactTokens(
-        uint amountOut,
-        uint amountInMax,
-        address[] calldata path,
-        address to,
-        uint deadline
-    ) external returns (uint[] memory amounts);
-    function swapExactAVAXForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)
-        external
-        payable
-        returns (uint[] memory amounts);
-    function swapTokensForExactAVAX(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
-        external
-        returns (uint[] memory amounts);
-    function swapExactTokensForAVAX(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
-        external
-        returns (uint[] memory amounts);
-    function swapAVAXForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)
-        external
-        payable
-        returns (uint[] memory amounts);
+        uint256 deadline,
+        bool approveMax,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external returns (uint256 amountToken, uint256 amountAVAX);
 
-    function quote(uint amountA, uint reserveA, uint reserveB) external pure returns (uint amountB);
-    function getAmountOut(uint amountIn, uint reserveIn, uint reserveOut) external pure returns (uint amountOut);
-    function getAmountIn(uint amountOut, uint reserveIn, uint reserveOut) external pure returns (uint amountIn);
-    function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts);
-    function getAmountsIn(uint amountOut, address[] calldata path) external view returns (uint[] memory amounts);
+    function swapExactTokensForTokens(
+        uint256 amountIn,
+        uint256 amountOutMin,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external returns (uint256[] memory amounts);
+
+    function swapTokensForExactTokens(
+        uint256 amountOut,
+        uint256 amountInMax,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external returns (uint256[] memory amounts);
+
+    function swapExactAVAXForTokens(
+        uint256 amountOutMin,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external payable returns (uint256[] memory amounts);
+
+    function swapTokensForExactAVAX(
+        uint256 amountOut,
+        uint256 amountInMax,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external returns (uint256[] memory amounts);
+
+    function swapExactTokensForAVAX(
+        uint256 amountIn,
+        uint256 amountOutMin,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external returns (uint256[] memory amounts);
+
+    function swapAVAXForExactTokens(
+        uint256 amountOut,
+        address[] calldata path,
+        address to,
+        uint256 deadline
+    ) external payable returns (uint256[] memory amounts);
+
+    function quote(
+        uint256 amountA,
+        uint256 reserveA,
+        uint256 reserveB
+    ) external pure returns (uint256 amountB);
+
+    function getAmountOut(
+        uint256 amountIn,
+        uint256 reserveIn,
+        uint256 reserveOut
+    ) external pure returns (uint256 amountOut);
+
+    function getAmountIn(
+        uint256 amountOut,
+        uint256 reserveIn,
+        uint256 reserveOut
+    ) external pure returns (uint256 amountIn);
+
+    function getAmountsOut(uint256 amountIn, address[] calldata path)
+        external
+        view
+        returns (uint256[] memory amounts);
+
+    function getAmountsIn(uint256 amountOut, address[] calldata path)
+        external
+        view
+        returns (uint256[] memory amounts);
 
     function removeLiquidityAVAXSupportingFeeOnTransferTokens(
         address token,
-        uint liquidity,
-        uint amountTokenMin,
-        uint amountAVAXMin,
+        uint256 liquidity,
+        uint256 amountTokenMin,
+        uint256 amountAVAXMin,
         address to,
-        uint deadline
-    ) external returns (uint amountAVAX);
+        uint256 deadline
+    ) external returns (uint256 amountAVAX);
+
     function removeLiquidityAVAXWithPermitSupportingFeeOnTransferTokens(
         address token,
-        uint liquidity,
-        uint amountTokenMin,
-        uint amountAVAXMin,
+        uint256 liquidity,
+        uint256 amountTokenMin,
+        uint256 amountAVAXMin,
         address to,
-        uint deadline,
-        bool approveMax, uint8 v, bytes32 r, bytes32 s
-    ) external returns (uint amountAVAX);
+        uint256 deadline,
+        bool approveMax,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) external returns (uint256 amountAVAX);
 
     function swapExactTokensForTokensSupportingFeeOnTransferTokens(
-        uint amountIn,
-        uint amountOutMin,
+        uint256 amountIn,
+        uint256 amountOutMin,
         address[] calldata path,
         address to,
-        uint deadline
+        uint256 deadline
     ) external;
+
     function swapExactAVAXForTokensSupportingFeeOnTransferTokens(
-        uint amountOutMin,
+        uint256 amountOutMin,
         address[] calldata path,
         address to,
-        uint deadline
+        uint256 deadline
     ) external payable;
+
     function swapExactTokensForAVAXSupportingFeeOnTransferTokens(
-        uint amountIn,
-        uint amountOutMin,
+        uint256 amountIn,
+        uint256 amountOutMin,
         address[] calldata path,
         address to,
-        uint deadline
+        uint256 deadline
     ) external;
 }
 // File: interfaces/INodeManager.sol
-
 
 pragma solidity ^0.8.0;
 
 interface INodeManager {
     function getMinPrice() external view returns (uint256);
-    function createNode(address account, string memory nodeName, uint256 amount) external;
-    function getNodeReward(address account, uint256 _creationTime) external view returns (uint256);
-    function getAllNodesRewards(address account) external view returns (uint256);
+
+    function createNode(
+        address account,
+        string memory nodeName,
+        uint256 amount
+    ) external;
+
+    function getNodeReward(address account, uint256 _creationTime)
+        external
+        view
+        returns (uint256);
+
+    function getAllNodesRewards(address account)
+        external
+        view
+        returns (uint256);
+
     function cashoutNodeReward(address account, uint256 _creationTime) external;
+
     function cashoutAllNodesRewards(address account) external;
-    function compoundNodeReward(address account, uint256 creationTime, uint256 rewardAmount) external;
+
+    function compoundNodeReward(
+        address account,
+        uint256 creationTime,
+        uint256 rewardAmount
+    ) external;
 }
 // File: @openzeppelin/contracts/utils/Address.sol
-
 
 // OpenZeppelin Contracts v4.4.1 (utils/Address.sol)
 
@@ -228,10 +332,16 @@ library Address {
      * https://solidity.readthedocs.io/en/v0.5.11/security-considerations.html#use-the-checks-effects-interactions-pattern[checks-effects-interactions pattern].
      */
     function sendValue(address payable recipient, uint256 amount) internal {
-        require(address(this).balance >= amount, "Address: insufficient balance");
+        require(
+            address(this).balance >= amount,
+            "Address: insufficient balance"
+        );
 
         (bool success, ) = recipient.call{value: amount}("");
-        require(success, "Address: unable to send value, recipient may have reverted");
+        require(
+            success,
+            "Address: unable to send value, recipient may have reverted"
+        );
     }
 
     /**
@@ -252,7 +362,10 @@ library Address {
      *
      * _Available since v3.1._
      */
-    function functionCall(address target, bytes memory data) internal returns (bytes memory) {
+    function functionCall(address target, bytes memory data)
+        internal
+        returns (bytes memory)
+    {
         return functionCall(target, data, "Address: low-level call failed");
     }
 
@@ -286,7 +399,13 @@ library Address {
         bytes memory data,
         uint256 value
     ) internal returns (bytes memory) {
-        return functionCallWithValue(target, data, value, "Address: low-level call with value failed");
+        return
+            functionCallWithValue(
+                target,
+                data,
+                value,
+                "Address: low-level call with value failed"
+            );
     }
 
     /**
@@ -301,10 +420,15 @@ library Address {
         uint256 value,
         string memory errorMessage
     ) internal returns (bytes memory) {
-        require(address(this).balance >= value, "Address: insufficient balance for call");
+        require(
+            address(this).balance >= value,
+            "Address: insufficient balance for call"
+        );
         require(isContract(target), "Address: call to non-contract");
 
-        (bool success, bytes memory returndata) = target.call{value: value}(data);
+        (bool success, bytes memory returndata) = target.call{value: value}(
+            data
+        );
         return verifyCallResult(success, returndata, errorMessage);
     }
 
@@ -314,8 +438,17 @@ library Address {
      *
      * _Available since v3.3._
      */
-    function functionStaticCall(address target, bytes memory data) internal view returns (bytes memory) {
-        return functionStaticCall(target, data, "Address: low-level static call failed");
+    function functionStaticCall(address target, bytes memory data)
+        internal
+        view
+        returns (bytes memory)
+    {
+        return
+            functionStaticCall(
+                target,
+                data,
+                "Address: low-level static call failed"
+            );
     }
 
     /**
@@ -341,8 +474,16 @@ library Address {
      *
      * _Available since v3.4._
      */
-    function functionDelegateCall(address target, bytes memory data) internal returns (bytes memory) {
-        return functionDelegateCall(target, data, "Address: low-level delegate call failed");
+    function functionDelegateCall(address target, bytes memory data)
+        internal
+        returns (bytes memory)
+    {
+        return
+            functionDelegateCall(
+                target,
+                data,
+                "Address: low-level delegate call failed"
+            );
     }
 
     /**
@@ -393,7 +534,6 @@ library Address {
 
 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/IERC20.sol)
 
 pragma solidity ^0.8.0;
@@ -419,7 +559,9 @@ interface IERC20 {
      *
      * Emits a {Transfer} event.
      */
-    function transfer(address recipient, uint256 amount) external returns (bool);
+    function transfer(address recipient, uint256 amount)
+        external
+        returns (bool);
 
     /**
      * @dev Returns the remaining number of tokens that `spender` will be
@@ -428,7 +570,10 @@ interface IERC20 {
      *
      * This value changes when {approve} or {transferFrom} are called.
      */
-    function allowance(address owner, address spender) external view returns (uint256);
+    function allowance(address owner, address spender)
+        external
+        view
+        returns (uint256);
 
     /**
      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
@@ -473,17 +618,18 @@ interface IERC20 {
      * @dev Emitted when the allowance of a `spender` for an `owner` is set by
      * a call to {approve}. `value` is the new allowance.
      */
-    event Approval(address indexed owner, address indexed spender, uint256 value);
+    event Approval(
+        address indexed owner,
+        address indexed spender,
+        uint256 value
+    );
 }
 
 // File: @openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/utils/SafeERC20.sol)
 
 pragma solidity ^0.8.0;
-
-
 
 /**
  * @title SafeERC20
@@ -502,7 +648,10 @@ library SafeERC20 {
         address to,
         uint256 value
     ) internal {
-        _callOptionalReturn(token, abi.encodeWithSelector(token.transfer.selector, to, value));
+        _callOptionalReturn(
+            token,
+            abi.encodeWithSelector(token.transfer.selector, to, value)
+        );
     }
 
     function safeTransferFrom(
@@ -511,7 +660,10 @@ library SafeERC20 {
         address to,
         uint256 value
     ) internal {
-        _callOptionalReturn(token, abi.encodeWithSelector(token.transferFrom.selector, from, to, value));
+        _callOptionalReturn(
+            token,
+            abi.encodeWithSelector(token.transferFrom.selector, from, to, value)
+        );
     }
 
     /**
@@ -533,7 +685,10 @@ library SafeERC20 {
             (value == 0) || (token.allowance(address(this), spender) == 0),
             "SafeERC20: approve from non-zero to non-zero allowance"
         );
-        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, value));
+        _callOptionalReturn(
+            token,
+            abi.encodeWithSelector(token.approve.selector, spender, value)
+        );
     }
 
     function safeIncreaseAllowance(
@@ -542,7 +697,14 @@ library SafeERC20 {
         uint256 value
     ) internal {
         uint256 newAllowance = token.allowance(address(this), spender) + value;
-        _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
+        _callOptionalReturn(
+            token,
+            abi.encodeWithSelector(
+                token.approve.selector,
+                spender,
+                newAllowance
+            )
+        );
     }
 
     function safeDecreaseAllowance(
@@ -552,9 +714,19 @@ library SafeERC20 {
     ) internal {
         unchecked {
             uint256 oldAllowance = token.allowance(address(this), spender);
-            require(oldAllowance >= value, "SafeERC20: decreased allowance below zero");
+            require(
+                oldAllowance >= value,
+                "SafeERC20: decreased allowance below zero"
+            );
             uint256 newAllowance = oldAllowance - value;
-            _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
+            _callOptionalReturn(
+                token,
+                abi.encodeWithSelector(
+                    token.approve.selector,
+                    spender,
+                    newAllowance
+                )
+            );
         }
     }
 
@@ -569,21 +741,25 @@ library SafeERC20 {
         // we're implementing it ourselves. We use {Address.functionCall} to perform this call, which verifies that
         // the target address contains contract code and also asserts for success in the low-level call.
 
-        bytes memory returndata = address(token).functionCall(data, "SafeERC20: low-level call failed");
+        bytes memory returndata = address(token).functionCall(
+            data,
+            "SafeERC20: low-level call failed"
+        );
         if (returndata.length > 0) {
             // Return data is optional
-            require(abi.decode(returndata, (bool)), "SafeERC20: ERC20 operation did not succeed");
+            require(
+                abi.decode(returndata, (bool)),
+                "SafeERC20: ERC20 operation did not succeed"
+            );
         }
     }
 }
 
 // File: @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev Interface for the optional metadata functions from the ERC20 standard.
@@ -608,7 +784,6 @@ interface IERC20Metadata is IERC20 {
 }
 
 // File: @openzeppelin/contracts/utils/Context.sol
-
 
 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
 
@@ -636,13 +811,9 @@ abstract contract Context {
 
 // File: @openzeppelin/contracts/finance/PaymentSplitter.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (finance/PaymentSplitter.sol)
 
 pragma solidity ^0.8.0;
-
-
-
 
 /**
  * @title PaymentSplitter
@@ -664,7 +835,11 @@ pragma solidity ^0.8.0;
 contract PaymentSplitter is Context {
     event PayeeAdded(address account, uint256 shares);
     event PaymentReleased(address to, uint256 amount);
-    event ERC20PaymentReleased(IERC20 indexed token, address to, uint256 amount);
+    event ERC20PaymentReleased(
+        IERC20 indexed token,
+        address to,
+        uint256 amount
+    );
     event PaymentReceived(address from, uint256 amount);
 
     uint256 private _totalShares;
@@ -685,7 +860,10 @@ contract PaymentSplitter is Context {
      * duplicates in `payees`.
      */
     constructor(address[] memory payees, uint256[] memory shares_) payable {
-        require(payees.length == shares_.length, "PaymentSplitter: payees and shares length mismatch");
+        require(
+            payees.length == shares_.length,
+            "PaymentSplitter: payees and shares length mismatch"
+        );
         require(payees.length > 0, "PaymentSplitter: no payees");
 
         for (uint256 i = 0; i < payees.length; i++) {
@@ -746,7 +924,11 @@ contract PaymentSplitter is Context {
      * @dev Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an
      * IERC20 contract.
      */
-    function released(IERC20 token, address account) public view returns (uint256) {
+    function released(IERC20 token, address account)
+        public
+        view
+        returns (uint256)
+    {
         return _erc20Released[token][account];
     }
 
@@ -765,7 +947,11 @@ contract PaymentSplitter is Context {
         require(_shares[account] > 0, "PaymentSplitter: account has no shares");
 
         uint256 totalReceived = address(this).balance + totalReleased();
-        uint256 payment = _pendingPayment(account, totalReceived, released(account));
+        uint256 payment = _pendingPayment(
+            account,
+            totalReceived,
+            released(account)
+        );
 
         require(payment != 0, "PaymentSplitter: account is not due payment");
 
@@ -784,8 +970,13 @@ contract PaymentSplitter is Context {
     function release(IERC20 token, address account) public virtual {
         require(_shares[account] > 0, "PaymentSplitter: account has no shares");
 
-        uint256 totalReceived = token.balanceOf(address(this)) + totalReleased(token);
-        uint256 payment = _pendingPayment(account, totalReceived, released(token, account));
+        uint256 totalReceived = token.balanceOf(address(this)) +
+            totalReleased(token);
+        uint256 payment = _pendingPayment(
+            account,
+            totalReceived,
+            released(token, account)
+        );
 
         require(payment != 0, "PaymentSplitter: account is not due payment");
 
@@ -805,7 +996,8 @@ contract PaymentSplitter is Context {
         uint256 totalReceived,
         uint256 alreadyReleased
     ) private view returns (uint256) {
-        return (totalReceived * _shares[account]) / _totalShares - alreadyReleased;
+        return
+            (totalReceived * _shares[account]) / _totalShares - alreadyReleased;
     }
 
     /**
@@ -814,9 +1006,15 @@ contract PaymentSplitter is Context {
      * @param shares_ The number of shares owned by the payee.
      */
     function _addPayee(address account, uint256 shares_) private {
-        require(account != address(0), "PaymentSplitter: account is the zero address");
+        require(
+            account != address(0),
+            "PaymentSplitter: account is the zero address"
+        );
         require(shares_ > 0, "PaymentSplitter: shares are 0");
-        require(_shares[account] == 0, "PaymentSplitter: account already has shares");
+        require(
+            _shares[account] == 0,
+            "PaymentSplitter: account already has shares"
+        );
 
         _payees.push(account);
         _shares[account] = shares_;
@@ -827,13 +1025,9 @@ contract PaymentSplitter is Context {
 
 // File: @openzeppelin/contracts/token/ERC20/ERC20.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (token/ERC20/ERC20.sol)
 
 pragma solidity ^0.8.0;
-
-
-
 
 /**
  * @dev Implementation of the {IERC20} interface.
@@ -926,7 +1120,13 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function balanceOf(address account) public view virtual override returns (uint256) {
+    function balanceOf(address account)
+        public
+        view
+        virtual
+        override
+        returns (uint256)
+    {
         return _balances[account];
     }
 
@@ -938,7 +1138,12 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `recipient` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      */
-    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+    function transfer(address recipient, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         _transfer(_msgSender(), recipient, amount);
         return true;
     }
@@ -946,7 +1151,13 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
     /**
      * @dev See {IERC20-allowance}.
      */
-    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+    function allowance(address owner, address spender)
+        public
+        view
+        virtual
+        override
+        returns (uint256)
+    {
         return _allowances[owner][spender];
     }
 
@@ -957,7 +1168,12 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    function approve(address spender, uint256 amount) public virtual override returns (bool) {
+    function approve(address spender, uint256 amount)
+        public
+        virtual
+        override
+        returns (bool)
+    {
         _approve(_msgSender(), spender, amount);
         return true;
     }
@@ -983,7 +1199,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         _transfer(sender, recipient, amount);
 
         uint256 currentAllowance = _allowances[sender][_msgSender()];
-        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        require(
+            currentAllowance >= amount,
+            "ERC20: transfer amount exceeds allowance"
+        );
         unchecked {
             _approve(sender, _msgSender(), currentAllowance - amount);
         }
@@ -1003,8 +1222,16 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      *
      * - `spender` cannot be the zero address.
      */
-    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
-        _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
+    function increaseAllowance(address spender, uint256 addedValue)
+        public
+        virtual
+        returns (bool)
+    {
+        _approve(
+            _msgSender(),
+            spender,
+            _allowances[_msgSender()][spender] + addedValue
+        );
         return true;
     }
 
@@ -1022,9 +1249,16 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
      * - `spender` must have allowance for the caller of at least
      * `subtractedValue`.
      */
-    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+    function decreaseAllowance(address spender, uint256 subtractedValue)
+        public
+        virtual
+        returns (bool)
+    {
         uint256 currentAllowance = _allowances[_msgSender()][spender];
-        require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
+        require(
+            currentAllowance >= subtractedValue,
+            "ERC20: decreased allowance below zero"
+        );
         unchecked {
             _approve(_msgSender(), spender, currentAllowance - subtractedValue);
         }
@@ -1057,7 +1291,10 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
         _beforeTokenTransfer(sender, recipient, amount);
 
         uint256 senderBalance = _balances[sender];
-        require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
+        require(
+            senderBalance >= amount,
+            "ERC20: transfer amount exceeds balance"
+        );
         unchecked {
             _balances[sender] = senderBalance - amount;
         }
@@ -1185,11 +1422,9 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 
 // File: @openzeppelin/contracts/access/Ownable.sol
 
-
 // OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)
 
 pragma solidity ^0.8.0;
-
 
 /**
  * @dev Contract module which provides a basic access control mechanism, where
@@ -1206,7 +1441,10 @@ pragma solidity ^0.8.0;
 abstract contract Ownable is Context {
     address private _owner;
 
-    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+    event OwnershipTransferred(
+        address indexed previousOwner,
+        address indexed newOwner
+    );
 
     /**
      * @dev Initializes the contract setting the deployer as the initial owner.
@@ -1246,7 +1484,10 @@ abstract contract Ownable is Context {
      * Can only be called by the current owner.
      */
     function transferOwnership(address newOwner) public virtual onlyOwner {
-        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        require(
+            newOwner != address(0),
+            "Ownable: new owner is the zero address"
+        );
         _transferOwnership(newOwner);
     }
 
@@ -1262,7 +1503,6 @@ abstract contract Ownable is Context {
 }
 
 // File: @openzeppelin/contracts/utils/math/SafeMath.sol
-
 
 // OpenZeppelin Contracts v4.4.1 (utils/math/SafeMath.sol)
 
@@ -1284,7 +1524,11 @@ library SafeMath {
      *
      * _Available since v3.4._
      */
-    function tryAdd(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    function tryAdd(uint256 a, uint256 b)
+        internal
+        pure
+        returns (bool, uint256)
+    {
         unchecked {
             uint256 c = a + b;
             if (c < a) return (false, 0);
@@ -1297,7 +1541,11 @@ library SafeMath {
      *
      * _Available since v3.4._
      */
-    function trySub(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    function trySub(uint256 a, uint256 b)
+        internal
+        pure
+        returns (bool, uint256)
+    {
         unchecked {
             if (b > a) return (false, 0);
             return (true, a - b);
@@ -1309,7 +1557,11 @@ library SafeMath {
      *
      * _Available since v3.4._
      */
-    function tryMul(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    function tryMul(uint256 a, uint256 b)
+        internal
+        pure
+        returns (bool, uint256)
+    {
         unchecked {
             // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
             // benefit is lost if 'b' is also tested.
@@ -1326,7 +1578,11 @@ library SafeMath {
      *
      * _Available since v3.4._
      */
-    function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    function tryDiv(uint256 a, uint256 b)
+        internal
+        pure
+        returns (bool, uint256)
+    {
         unchecked {
             if (b == 0) return (false, 0);
             return (true, a / b);
@@ -1338,7 +1594,11 @@ library SafeMath {
      *
      * _Available since v3.4._
      */
-    function tryMod(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    function tryMod(uint256 a, uint256 b)
+        internal
+        pure
+        returns (bool, uint256)
+    {
         unchecked {
             if (b == 0) return (false, 0);
             return (true, a % b);
@@ -1497,13 +1757,15 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
     using SafeMath for uint256;
 
     address public joePair;
-    address public joeRouterAddress = 0x60aE616a2155Ee3d9A68541Ba4544862310933d4; // TraderJoe Router
+    address public joeRouterAddress =
+        0x60aE616a2155Ee3d9A68541Ba4544862310933d4; // TraderJoe Router
 
     address public teamPool;
     address public rewardsPool;
 
     // Burn address
-    address public constant BURN_ADDRESS = 0x000000000000000000000000000000000000dEaD;
+    address public constant BURN_ADDRESS =
+        0x000000000000000000000000000000000000dEaD;
 
     uint256 public rewardsFee;
     uint256 public liquidityPoolFee;
@@ -1511,10 +1773,9 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
     uint256 public cashoutFee;
     uint256 public totalFees;
 
-
     // Max transfer amount rate in basis points. (default is 10% of total supply)
     uint16 public maxTransferAmountRate = 500;
-     // Max balance amount rate in basis points. (default is 5% of total supply)
+    // Max balance amount rate in basis points. (default is 5% of total supply)
     uint16 public maxBalanceAmountRate = 1000;
 
     uint256 public swapTokensAmount;
@@ -1537,8 +1798,16 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         address indexed oldAddress
     );
 
-    event MaxTransferAmountRateUpdated(address indexed operator, uint256 previousRate, uint256 newRate);
-    event maxBalanceAmountRateUpdated(address indexed operator, uint256 previousRate, uint256 newRate);
+    event MaxTransferAmountRateUpdated(
+        address indexed operator,
+        uint256 previousRate,
+        uint256 newRate
+    );
+    event maxBalanceAmountRateUpdated(
+        address indexed operator,
+        uint256 previousRate,
+        uint256 newRate
+    );
 
     event SetAutomatedMarketMakerPair(address indexed pair, bool indexed value);
 
@@ -1565,15 +1834,25 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         uint256 indexed blockTime
     );
 
-    modifier antiWhale(address sender, address recipient, uint256 amount) {
+    modifier antiWhale(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) {
         if (maxTransferAmount() > 0) {
             if (
-                _excludedFromAntiWhale[sender] == false
-                && _excludedFromAntiWhale[recipient] == false
+                _excludedFromAntiWhale[sender] == false &&
+                _excludedFromAntiWhale[recipient] == false
             ) {
-                require(amount <= maxTransferAmount(), "Starnodes::antiWhale: Transfer amount exceeds the maxTransferAmount");
+                require(
+                    amount <= maxTransferAmount(),
+                    "Starnodes::antiWhale: Transfer amount exceeds the maxTransferAmount"
+                );
                 if (sender == joePair) {
-                    require(balanceOf(recipient).add(amount) <= maxBalanceAmount(), "Starnodes::antiWhale: Transfer would exceed the maxBalanceAmount of the recipient");
+                    require(
+                        balanceOf(recipient).add(amount) <= maxBalanceAmount(),
+                        "Starnodes::antiWhale: Transfer would exceed the maxBalanceAmount of the recipient"
+                    );
                 }
             }
         }
@@ -1586,17 +1865,16 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         address[] memory addresses,
         uint256[] memory fees,
         uint256 swapAmount
-    )
-        ERC20("Starnodz", "STRZ")
-        PaymentSplitter(payees, shares)
-    {
+    ) ERC20("Starnodz", "STRZ") PaymentSplitter(payees, shares) {
         _excludedFromAntiWhale[msg.sender] = true;
         _excludedFromAntiWhale[address(0)] = true;
         _excludedFromAntiWhale[address(this)] = true;
         _excludedFromAntiWhale[BURN_ADDRESS] = true;
 
         require(
-            addresses[0] != address(0) && addresses[1] != address(0) && addresses[2] != address(0),
+            addresses[0] != address(0) &&
+                addresses[1] != address(0) &&
+                addresses[2] != address(0),
             "CONSTR:1"
         );
         teamPool = addresses[0];
@@ -1606,9 +1884,10 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         require(joeRouterAddress != address(0), "CONSTR:2");
         IPangolinRouter _joeRouter = IPangolinRouter(joeRouterAddress);
 
-        address _joePair = IPangolinFactory(_joeRouter.factory())
-        .createPair(address(this), _joeRouter.WAVAX());
-
+        address _joePair = IPangolinFactory(_joeRouter.factory()).createPair(
+            address(this),
+            _joeRouter.WAVAX()
+        );
 
         joeRouter = _joeRouter;
         joePair = _joePair;
@@ -1631,7 +1910,10 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         swapTokensAmount = swapAmount * (10**18);
     }
 
-    function migrate(address[] memory addresses_, uint256[] memory balances_) external onlyOwner {
+    function migrate(address[] memory addresses_, uint256[] memory balances_)
+        external
+        onlyOwner
+    {
         for (uint256 i = 0; i < addresses_.length; i++) {
             _mint(addresses_[i], balances_[i]);
         }
@@ -1642,12 +1924,9 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
     }
 
     function updateJoeRouterAddress(address newAddress) external onlyOwner {
-        require(
-            newAddress != address(joeRouter),
-            "TKN:1"
-        );
+        require(newAddress != address(joeRouter), "TKN:1");
         emit UpdateJoeRouter(newAddress, address(joeRouter));
-        IPangolinRouter	 _joeRouter = IPangolinRouter(newAddress);
+        IPangolinRouter _joeRouter = IPangolinRouter(newAddress);
         address _joePair = IPangolinFactory(joeRouter.factory()).createPair(
             address(this),
             _joeRouter.WAVAX()
@@ -1703,22 +1982,20 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         external
         onlyOwner
     {
-        require(
-            pair != joePair,
-            "TKN:2"
-        );
+        require(pair != joePair, "TKN:2");
 
         _setAutomatedMarketMakerPair(pair, value);
     }
 
-    function blacklistAddress(address account, bool value)
-        external
-        onlyOwner
-    {
+    function blacklistAddress(address account, bool value) external onlyOwner {
         isBlacklisted[account] = value;
     }
 
-    function isExcludedFromAntiWhale(address _account) public view returns (bool) {
+    function isExcludedFromAntiWhale(address _account)
+        public
+        view
+        returns (bool)
+    {
         return _excludedFromAntiWhale[_account];
     }
 
@@ -1726,17 +2003,26 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
      * @dev Returns the max wallet amount.
      */
     function maxBalanceAmount() public view returns (uint256) {
-        return (totalSupply()-balanceOf(rewardsPool)).mul(maxBalanceAmountRate).div(10000);
+        return
+            (totalSupply() - balanceOf(rewardsPool))
+                .mul(maxBalanceAmountRate)
+                .div(10000);
     }
 
     /**
      * @dev Returns the max transfer amount.
      */
     function maxTransferAmount() public view returns (uint256) {
-        return (totalSupply()-balanceOf(rewardsPool)).mul(maxTransferAmountRate).div(10000);
+        return
+            (totalSupply() - balanceOf(rewardsPool))
+                .mul(maxTransferAmountRate)
+                .div(10000);
     }
 
-    function setExcludedFromAntiWhale(address _account, bool _excluded) public onlyOwner {
+    function setExcludedFromAntiWhale(address _account, bool _excluded)
+        public
+        onlyOwner
+    {
         _excludedFromAntiWhale[_account] = _excluded;
     }
 
@@ -1744,10 +2030,23 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
      * @dev Update the max balance amount rate.
      * Can only be called by the current operator.
      */
-    function updatemaxBalanceAmountRate(uint16 _maxBalanceAmountRate) external onlyOwner {
-        require(_maxBalanceAmountRate <= 10000, "SEED::updatemaxBalanceAmountRate: Max transfer amount rate must not exceed the maximum rate.");
-        require(_maxBalanceAmountRate >= 200, "SEED::updatemaxBalanceAmountRate: Max transfer amount rate must  exceed the minimum rate.");
-        emit maxBalanceAmountRateUpdated(msg.sender, maxBalanceAmountRate, _maxBalanceAmountRate);
+    function updatemaxBalanceAmountRate(uint16 _maxBalanceAmountRate)
+        external
+        onlyOwner
+    {
+        require(
+            _maxBalanceAmountRate <= 10000,
+            "SEED::updatemaxBalanceAmountRate: Max transfer amount rate must not exceed the maximum rate."
+        );
+        require(
+            _maxBalanceAmountRate >= 200,
+            "SEED::updatemaxBalanceAmountRate: Max transfer amount rate must  exceed the minimum rate."
+        );
+        emit maxBalanceAmountRateUpdated(
+            msg.sender,
+            maxBalanceAmountRate,
+            _maxBalanceAmountRate
+        );
         maxBalanceAmountRate = _maxBalanceAmountRate;
     }
 
@@ -1755,20 +2054,30 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
      * @dev Update the max transfer amount rate.
      * Can only be called by the current operator.
      */
-    function updateMaxTransferAmountRate(uint16 _maxTransferAmountRate) public onlyOwner {
-        require(_maxTransferAmountRate <= 10000, "SEED::updateMaxTransferAmountRate: Max transfer amount rate must not exceed the maximum rate.");
-        require(_maxTransferAmountRate >= 100, "SEED::updateMaxTransferAmountRate: Max transfer amount rate must exceed the minimum rate.");
-        emit MaxTransferAmountRateUpdated(msg.sender, maxTransferAmountRate, _maxTransferAmountRate);
+    function updateMaxTransferAmountRate(uint16 _maxTransferAmountRate)
+        public
+        onlyOwner
+    {
+        require(
+            _maxTransferAmountRate <= 10000,
+            "SEED::updateMaxTransferAmountRate: Max transfer amount rate must not exceed the maximum rate."
+        );
+        require(
+            _maxTransferAmountRate >= 100,
+            "SEED::updateMaxTransferAmountRate: Max transfer amount rate must exceed the minimum rate."
+        );
+        emit MaxTransferAmountRateUpdated(
+            msg.sender,
+            maxTransferAmountRate,
+            _maxTransferAmountRate
+        );
         maxTransferAmountRate = _maxTransferAmountRate;
     }
 
     // Private methods
 
     function _setAutomatedMarketMakerPair(address pair, bool value) private {
-        require(
-            automatedMarketMakerPairs[pair] != value,
-            "TKN:3"
-        );
+        require(automatedMarketMakerPairs[pair] != value, "TKN:3");
         automatedMarketMakerPairs[pair] = value;
 
         emit SetAutomatedMarketMakerPair(pair, value);
@@ -1778,14 +2087,17 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         address from,
         address to,
         uint256 amount
-    ) internal  override antiWhale(from, to, amount){
-        require(
-            !isBlacklisted[from] && !isBlacklisted[to],
-            "BLACKLISTED"
-        );
+    ) internal override antiWhale(from, to, amount) {
+        require(!isBlacklisted[from] && !isBlacklisted[to], "BLACKLISTED");
         require(from != address(0), "ERC20:1");
         require(to != address(0), "ERC20:2");
-        if (from != owner() && to != joePair && to != address(joeRouter) && to != address(this) && from != address(this)) {
+        if (
+            from != owner() &&
+            to != joePair &&
+            to != address(joeRouter) &&
+            to != address(this) &&
+            from != address(this)
+        ) {
             require(isTradingEnabled, "TRADING_DISABLED");
         }
         super._transfer(from, to, amount);
@@ -1843,25 +2155,15 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
 
     // External node methods
 
-    function createNodeWithTokens(string memory name, uint256 amount_) external {
+    function createNodeWithTokens(string memory name, uint256 amount_)
+        external
+    {
         address sender = _msgSender();
-        require(
-            bytes(name).length > 3 && bytes(name).length < 32,
-            "NC:1"
-        );
-        require(
-            sender != address(0),
-            "NC:2"
-        );
+        require(bytes(name).length > 3 && bytes(name).length < 32, "NC:1");
+        require(sender != address(0), "NC:2");
         require(!isBlacklisted[sender], "BLACKLISTED");
-        require(
-            sender != teamPool && sender != rewardsPool,
-            "NC:4"
-        );
-        require(
-            balanceOf(sender) >= amount_,
-            "NC:5"
-        );
+        require(sender != teamPool && sender != rewardsPool, "NC:4");
+        require(balanceOf(sender) >= amount_, "NC:5");
 
         uint256 contractTokenBalance = balanceOf(address(this));
         bool swapAmountOk = contractTokenBalance >= swapTokensAmount;
@@ -1874,9 +2176,7 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         ) {
             swapping = true;
 
-            uint256 teamTokens = contractTokenBalance
-                .mul(teamPoolFee)
-                .div(100);
+            uint256 teamTokens = contractTokenBalance.mul(teamPoolFee).div(100);
 
             swapAndSendToFee(teamPool, teamTokens);
 
@@ -1911,23 +2211,11 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
 
     function cashoutReward(uint256 blocktime) external {
         address sender = _msgSender();
-        require(
-            sender != address(0),
-            "CASHOUT:1"
-        );
-        require(
-            !isBlacklisted[sender],
-            "BLACKLISTED"
-        );
-        require(
-            sender != teamPool && sender != rewardsPool,
-            "CASHOUT:3"
-        );
+        require(sender != address(0), "CASHOUT:1");
+        require(!isBlacklisted[sender], "BLACKLISTED");
+        require(sender != teamPool && sender != rewardsPool, "CASHOUT:3");
         uint256 rewardAmount = nodeManager.getNodeReward(sender, blocktime);
-        require(
-            rewardAmount > 0,
-            "CASHOUT:4"
-        );
+        require(rewardAmount > 0, "CASHOUT:4");
 
         if (swapLiquifyEnabled) {
             uint256 feeAmount;
@@ -1946,23 +2234,11 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
 
     function cashoutAll() external {
         address sender = _msgSender();
-        require(
-            sender != address(0),
-            "CASHOUT:5"
-        );
-        require(
-            !isBlacklisted[sender],
-            "BLACKLISTED"
-        );
-        require(
-            sender != teamPool && sender != rewardsPool,
-            "CASHOUT:7"
-        );
+        require(sender != address(0), "CASHOUT:5");
+        require(!isBlacklisted[sender], "BLACKLISTED");
+        require(sender != teamPool && sender != rewardsPool, "CASHOUT:7");
         uint256 rewardAmount = nodeManager.getAllNodesRewards(sender);
-        require(
-            rewardAmount > 0,
-            "CASHOUT:8"
-        );
+        require(rewardAmount > 0, "CASHOUT:8");
         if (swapLiquifyEnabled) {
             uint256 feeAmount;
             if (cashoutFee > 0) {
@@ -1980,23 +2256,11 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
 
     function compoundNodeRewards(uint256 blocktime) external {
         address sender = _msgSender();
-        require(
-            sender != address(0),
-            "COMP:1"
-        );
-        require(
-            !isBlacklisted[sender],
-            "BLACKLISTED"
-        );
-        require(
-            sender != teamPool && sender != rewardsPool,
-            "COMP:2"
-        );
+        require(sender != address(0), "COMP:1");
+        require(!isBlacklisted[sender], "BLACKLISTED");
+        require(sender != teamPool && sender != rewardsPool, "COMP:2");
         uint256 rewardAmount = nodeManager.getNodeReward(sender, blocktime);
-        require(
-            rewardAmount > 0,
-            "COMP:3"
-        );
+        require(rewardAmount > 0, "COMP:3");
 
         uint256 contractTokenBalance = balanceOf(address(this));
         bool swapAmountOk = contractTokenBalance >= swapTokensAmount;
@@ -2009,9 +2273,7 @@ contract StarNodz is ERC20, Ownable, PaymentSplitter {
         ) {
             swapping = true;
 
-            uint256 teamTokens = contractTokenBalance
-                .mul(teamPoolFee)
-                .div(100);
+            uint256 teamTokens = contractTokenBalance.mul(teamPoolFee).div(100);
 
             swapAndSendToFee(teamPool, teamTokens);
 

@@ -24,16 +24,16 @@ export default function Pricing() {
   ];
   return (
     // <!-- Pricing section -->
-    <section class="w-full pt-16 pb-20">
-      <div class="px-10 mx-auto text-center max-w-7xl">
+    <section class="staking w-full pt-4 sm:mt-16 pb-20">
+      <div class="px-2 mx-auto text-center max-w-7xl">
         <HeaderText>
-          Staking Farms
-        </HeaderText>
-        <div className="m-16 rounded-xl overflow-hidden border-gray-900">
+        <div className="m-6 sm:m-16 rounded-xl overflow-hidden border-gray-900">
           <Image src={src} />
         </div>
+          Staking Farms
+        </HeaderText>
         <BodyText>
-          We pay are the first protocol to base yield on a monthly basis. You can engage in any of our staking contracts, to earn passive income.
+          We are the first protocol to base yield on a monthly basis. You can engage in any of our staking contracts, to earn passive income.
         </BodyText>
         <div class="grid gap-5 mt-12 lg:grid-cols-3 md:grid-cols-2">
           {/* <!-- Start First Plan --> */}
