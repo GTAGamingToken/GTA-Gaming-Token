@@ -16,7 +16,7 @@ export default function Header(){
           Trade GTA Gaming fan token to earn and vote for changes to your favourite franchise. A play to earn multiverse fan token where you can stake to earn.
         </BodyText>
         <div>
-          <a href="https://kinanee-samson.gitbook.io/gta-gaming-token/">
+          <a href="https://gtagamingtoken.gitbook.io/gta-gaming-token-white-paper/">
             <TransparentButton>White Paper</TransparentButton>
           </a>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url">
