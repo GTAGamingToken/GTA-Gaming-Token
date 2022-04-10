@@ -4,7 +4,7 @@ import Plan from "./Plan";
 import Image from "./Image"
 
 export default function Pricing() {
-  let src ='./images/WallpaperDog-20488943.jpg';
+  let src ='./images/2543C9A4-CF0E-4821-84F3-6D01A078D99F.jpg';
   const plans = [
     {
       title: 'GTA Gaming Young Thugs',
@@ -24,7 +24,7 @@ export default function Pricing() {
   ];
   return (
     // <!-- Pricing section -->
-    <section class="staking w-full pt-4 sm:mt-16 pb-20">
+    <section class="staking w-full pt-4 sm:mt-16 pb-20" id="staking">
       <div class="px-2 mx-auto text-center max-w-7xl">
         <HeaderText>
         <div className="m-6 sm:m-16 rounded-xl overflow-hidden border-gray-900">

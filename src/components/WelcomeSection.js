@@ -4,7 +4,7 @@ import Image from "./Image";
 
 export default function WelcomeSection({ welcomeText, title, src }){
   return (
-    <section className="welcome-section">
+    <section className="welcome-section" id="welcome-section">
       <div>
         <div className="m-8 sm:m-16 rounded-xl overflow-hidden border-gray-900">
           <Image src={src} />

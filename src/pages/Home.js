@@ -9,7 +9,7 @@ import PlayToEarn from "../components/PlayToEarn";
 export default function Home(){
 
   const welcomeTitle =  'About GTA Gaming Token';
-  let src = '/images/WallpaperDog-20488975.jpg'
+  let src = '/images/CAA781ED-0C77-43F3-BDF4-7F08E94885E1.jpg'
   return(
     <LayoutComponent>
       <Header />

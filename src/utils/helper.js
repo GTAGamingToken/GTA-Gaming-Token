@@ -8,19 +8,19 @@ export const NavLinks = [
   {
     text: 'About',
     active: false,
-    route: '/about',
+    route: '#welcome-section',
     id: 2
   },
   {
     text: 'Timeline',
     active: false,
-    route: '/timeline',
+    route: '#timeline',
     id: 3
   },
   {
     text: 'Stake',
     active: false,
-    route: '/stake',
+    route: '#staking',
     id: 4
   }
 ]

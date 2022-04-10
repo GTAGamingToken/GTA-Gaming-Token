@@ -49,7 +49,7 @@ export default function Plan({ roi, name, color }) {
       </div>
 
       <ul className="relative py-12 space-y-3">
-        <li className="flex items-center space-x-2 text-sm font-medium text-white">
+        {/* <li className="flex items-center space-x-2 text-sm font-medium text-white">
           <svg
             className="w-6 h-6 white"
             fill="currentColor"
@@ -63,7 +63,7 @@ export default function Plan({ roi, name, color }) {
             ></path>
           </svg>
           <span>Custom Design &amp; Features</span>
-        </li>
+        </li> */}
         
       </ul>
 
@@ -73,7 +73,7 @@ export default function Plan({ roi, name, color }) {
       >
         <span className={`w-full h-full absolute inset-0 transform translate-y-1.5 translate-x-1.5 hover:translate-y-0 hover:translate-x-0 transition-all ease-out duration-200 rounded-xl ${color}`}></span>
         <span className="absolute inset-0 w-full h-full border-2 border-gray-100 rounded-xl"></span>
-        <span className="relative">Stake Now</span>
+        <span className="relative">Comint Soon</span>
         <svg
           className="w-5 h-5 ml-2 transition-all duration-200 ease-out transform group-hover:translate-x-1"
           fill="currentColor"
