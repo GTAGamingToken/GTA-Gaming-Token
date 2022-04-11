@@ -21,12 +21,18 @@ description: Road Map for GTA Gaming Token
 
 #### Q3 2022. First phase CEX Listing
 
+* MEXC
+* Bybit
+* Gate.io
+
+#### Q4 2022 Token/NFT Airdrop, Staking and DEX
+
 * Token Airdrop distribution
 * GTA DEX launch
 * Staking protocol launch.
 * NFT airdrop distribution
 
-#### Q4 2022. NFT Minting and Market Place
+#### Q1 2023. NFT Minting and Market Place
 
 * GTA gaming NFT market place.
 * Minting of special collectibles and items.
@@ -34,11 +40,10 @@ description: Road Map for GTA Gaming Token
 * P2E&#x20;
 * GTA wallet
 
-#### Q1 2023. 2nd Phase Market Place Listing
+#### Q2 2023. 2nd Phase Market Place Listing
 
 * OKEx
 * Huobi
 * Binance&#x20;
 * Coinbase
 
-\
