@@ -4,7 +4,7 @@ description: Road Map for GTA Gaming Token
 
 # RoadMap
 
-#### Q1 2022
+#### Q1 2022 Development
 
 * Birth of GTA gaming![✅](https://fonts.gstatic.com/s/e/notoemoji/14.0/2705/32.png)
 * Website development![✅](https://fonts.gstatic.com/s/e/notoemoji/14.0/2705/32.png)
@@ -38,7 +38,6 @@ description: Road Map for GTA Gaming Token
 * Minting of special collectibles and items.
 * Trading GTA collectibles and NFTs for GTA token.
 * P2E&#x20;
-* GTA wallet
 
 #### Q2 2023. 2nd Phase Market Place Listing
 
@@ -47,3 +46,7 @@ description: Road Map for GTA Gaming Token
 * Binance&#x20;
 * Coinbase
 
+#### Q3 2023. Partnerships
+* GTA Gaming P2E metaverse
+* Partnership with Playstation
+* Partnership with Xbox

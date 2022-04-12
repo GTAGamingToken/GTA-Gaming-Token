@@ -147,10 +147,10 @@ export default function TimeLine() {
         <div class="container left">
           <div class="content">
             <h2>
-              <span>Q3 2023</span>GTA Gaming P2E Metaverse
+              <span>Q3 2023</span>Partnerships
             </h2>
             <ul className="flex flex-col space-y-4 text-2xl">
-              {/* <li><h3>Partnership with Rockstar North.</h3></li> */}
+              <li><h3>GTA Gaming P2E Metaverse</h3></li>
               <li>
                 <h3>Partnership with Playstation.</h3>
               </li>
