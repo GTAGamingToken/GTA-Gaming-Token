@@ -8,18 +8,21 @@ export default function Pricing() {
   const plans = [
     {
       title: 'GTA Gaming Young Thugs',
-      roi: 3,
-      color: 'bg-green-500'
+      roi: 10,
+      color: 'bg-green-500',
+      duration: 2
     },
     {
       title: 'GTA Gaming Pro Thugs',
-      roi: 5,
-      color: 'bg-yellow-500'
+      roi: 18,
+      color: 'bg-yellow-500',
+      duration: 3
     },
     {
       title: 'GTA Gaming Mafia Boss',
-      roi: 10,
-      color: 'bg-red-500'
+      roi: 25,
+      color: 'bg-red-500',
+      duration: 4
     },
   ];
   return (
@@ -38,7 +41,7 @@ export default function Pricing() {
         <div class="grid gap-5 mt-12 lg:grid-cols-3 md:grid-cols-2">
           {/* <!-- Start First Plan --> */}
           { plans && plans.map(plan => (
-            <Plan roi={plan.roi} name={plan.title} color={plan.color} key={plan.roi} />
+            <Plan roi={plan.roi} name={plan.title} color={plan.color} key={plan.roi} duration={plan.duration} />
           )) }
           {/* <!-- End First Plan --> */}
         </div>

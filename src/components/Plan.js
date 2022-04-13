@@ -1,4 +1,4 @@
-export default function Plan({ roi, name, color }) {
+export default function Plan({ roi, name, color, duration }) {
   return (
     <div className="relative flex flex-col justify-between p-8 lg:p-6 xl:p-8 rounded-2xl">
       <div className="absolute inset-0 w-full h-full transform translate-x-2 translate-y-2 bg-transparent rounded-2xl"></div>
@@ -42,14 +42,14 @@ export default function Plan({ roi, name, color }) {
             </span>
             <span className="text-3xl font-bold text-gray-300">{roi}</span>
             <span className="text-sm -translate-y-0.5 inline-block transform">
-              MPY
+              &nbsp;MPY
             </span>
           </p>
         </div>
       </div>
 
       <ul className="relative py-12 space-y-3">
-        {/* <li className="flex items-center space-x-2 text-sm font-medium text-white">
+        <li className="flex items-center space-x-2 text-sm font-medium text-white">
           <svg
             className="w-6 h-6 white"
             fill="currentColor"
@@ -62,8 +62,8 @@ export default function Plan({ roi, name, color }) {
               clip-rule="evenodd"
             ></path>
           </svg>
-          <span>Custom Design &amp; Features</span>
-        </li> */}
+          <span className="text-bold my-2 text-2xl">Duration - { duration } Weeks</span>
+        </li>
         
       </ul>
 

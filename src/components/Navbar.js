@@ -1,10 +1,26 @@
 import { useState } from "react";
+import { ethers } from 'ethers';
 
 export default function Navbar({ links }) {
+
+  const connectWallet = async () => {
+    const provider = new ethers.providers.Web3Provider(
+      window.ethereum,
+      "any"
+    );
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+
+    (async function () {
+      let userAddress = await signer.getAddress();
+      console.log(signer, userAddress);
+    })();
+  }
+
   const src = "./images/DE4C9BA0-5F74-4389-9165-8430A34F68B3.png";
   let [showNav, setShowNav] = useState(false);
   return (
-    <nav className="flex cursor-pointer flex-col sm:flex-row justify-between bg-black font-bold py-4">
+    <nav className="flex cursor-pointer flex-col sm:flex-row justify-between bg-black font-bold py">
       <div className="mx-2 p-2 py-8 flex flex-row justify-between">
         <a href="/" className="mx-2">
             <img src="/images/F06955A4-F4F3-4689-8A81-D4E94646EEBE.png" width="60" height="40" className="object-contain" alt="gta gaming" />
@@ -22,13 +38,13 @@ export default function Navbar({ links }) {
           links.map((link) =>
             link.active ? ( // if the link is active, show it
               <li
-                className={`mx-6 py-8 border-b-2 border-gray-200`}
+                className={`mx-6 md:py-8 py-4  border-b-2 border-gray-200`}
                 key={link.id}
               >
                 <a href={link.route}>{link.text}</a>
               </li>
             ) : (
-              <li className={`mx-6 py-8`} key={link.id}>
+              <li className={`mx-6 md:py-8 py-4`} key={link.id}>
                 <a href={link.route}>{link.text}</a>
               </li>
             )
@@ -41,13 +57,13 @@ export default function Navbar({ links }) {
               links.map((link) =>
                 link.active ? ( // if the link is active, show it
                   <li
-                    className={`mx-6 py-8 border-b-2 border-gray-200`}
+                    className={`mx-6 md:py-8 py-4 border-b-2 border-gray-200`}
                     key={link.id}
                   >
                     <a href={link.route}>{link.text}</a>
                   </li>
                 ) : (
-                  <li className={`mx-6 py-8`} key={link.id}>
+                  <li className={`mx-6 md:py-8 py-4`} key={link.id}>
                     <a href={link.route}>{link.text}</a>
                   </li>
                 )
@@ -59,7 +75,7 @@ export default function Navbar({ links }) {
                 Airdrop
               </a>
             </li>
-            <li className="p-6">0xEFF</li>
+            {/* <li className="p-6" onClick={connectWallet}><p>0xEFF</p></li> */}
           </ul>
         </>
       )}
@@ -69,7 +85,7 @@ export default function Navbar({ links }) {
             Airdrop
           </a>
         </li>
-        {/* <li className="mx-2">0xEFF</li> */}
+        {/* <li className="mx-2" onClick={connectWallet}><p>0xEFF</p></li> */}
       </ul>
     </nav>
   );
