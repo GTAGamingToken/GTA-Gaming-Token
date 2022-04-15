@@ -11,9 +11,9 @@ export default function Header(){
   return (
     <section className="header relative mb-0" id="header">
       <div className="absolute bottom-16 left-14 sm:w-2/4 z-10">
-        <HeaderText>A Token for your favourite gangstar game.</HeaderText>
+        <HeaderText>A Token based on your favourite gangstar game.</HeaderText>
         <BodyText>
-          Trade GTA Gaming fan token to earn and vote for changes to your favourite franchise. A play to earn multiverse fan token where you can stake to earn.
+          Trade GTA Gaming fan token to earn and vote for changes a gangstar metaverse. A play to earn metaverse fan token, you can also stake to earn.
         </BodyText>
         <div>
           <a href="https://gtagamingtoken.gitbook.io/gta-gaming-token-white-paper/">
