@@ -42,7 +42,7 @@ export default function Plan({ roi, name, color, duration }) {
             </span>
             <span className="text-3xl font-bold text-gray-300">{roi}</span>
             <span className="text-sm -translate-y-0.5 inline-block transform">
-              &nbsp;MPY
+              &nbsp;WPY
             </span>
           </p>
         </div>
