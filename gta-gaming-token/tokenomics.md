@@ -52,5 +52,5 @@ Note: Anti whale no wallet can hold more than 0.0125% of total supply.
 * Auto burn: 2%
 
 {% hint style="info" %}
-Note: Reserved Supply: Development purposes, marketing, research and funding. Must have a minimum of 200M reserved supply.
+Note: Reserved Supply, Must have a minimum of 200M reserved supply.
 {% endhint %}
