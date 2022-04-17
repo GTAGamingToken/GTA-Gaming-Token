@@ -12,7 +12,7 @@ export default function WelcomeSection({ welcomeText, title, src }){
         <div className="text-center">
           <HeaderText>{title}</HeaderText>
         </div>
-        <div className="text-justify">
+        <div className="text-justify p-6">
             <BodyText>{ welcomeText }</BodyText>
           </div>
       </div>
