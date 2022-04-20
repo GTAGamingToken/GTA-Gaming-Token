@@ -6,7 +6,7 @@ import BodyText from "./BodyText"
 export default function Header(){
   // const _history = useHistory();
 
-  const airDropForm = "https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url"
+  const airDropForm = "https://docs.google.com/forms/d/e/1FAIpQLSdPbDbY0tBUeI2ALHx49vlG0Ag_KOaQiZpNHVum2hNUpjhd3A/viewform?usp=pp_url"
 
   return (
     <section className="header relative mb-0" id="header">
@@ -19,7 +19,7 @@ export default function Header(){
           <a href="https://gtagamingtoken.gitbook.io/gta-gaming-token-white-paper/">
             <TransparentButton>White Paper</TransparentButton>
           </a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc4dKgF3CNoc1yiyvm-xOOYKHof_MrlRn-XgsZv-TU6jW8SWg/viewform?usp=pp_url">
+          <a href={airDropForm}>
             <TransparentButton>
               Airdrop
             </TransparentButton>

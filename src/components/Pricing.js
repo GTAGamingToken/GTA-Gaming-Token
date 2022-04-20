@@ -36,7 +36,7 @@ export default function Pricing() {
           Staking Farms
         </HeaderText>
         <BodyText>
-          We are the first protocol to base yield on a monthly basis. You can engage in any of our staking contracts, to earn passive income.
+          We are the first protocol to base yield on a weekly basis. You can engage in any of our staking contracts, to earn passive income.
         </BodyText>
         <div class="grid gap-5 mt-12 lg:grid-cols-3 md:grid-cols-2">
           {/* <!-- Start First Plan --> */}
